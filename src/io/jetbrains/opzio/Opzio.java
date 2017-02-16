@@ -50,7 +50,7 @@ public class Opzio implements ApplicationComponent {
     public static String IDE_NAME;
     public static String IDE_VERSION;
     public static MessageBusConnection connection;
-    public static Boolean DEBUG = true;
+    public static Boolean DEBUG = false;
     public static Boolean READY = false;
     public static String lastFile = null;
     public static BigDecimal lastTime = new BigDecimal(0);
