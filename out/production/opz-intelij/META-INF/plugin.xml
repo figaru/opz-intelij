@@ -1,8 +1,8 @@
 <idea-plugin version="2">
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>io.jetbrains.opzio</id>
+  <name>Time Tracker</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="law@opz.io" url="https://www.opz.io">Opzio</vendor>
 
   <description><![CDATA[
       Enter short description for your plugin here.<br>
@@ -28,8 +28,15 @@
     <!-- Add your extensions here -->
   </extensions>
 
+
+  <application-components>
+    <component>
+      <implementation-class>io.jetbrains.opzio.Opzio</implementation-class>
+    </component>
+  </application-components>
+
   <actions>
     <!-- Add your actions here -->
+    <action id="pluginMenu" class="io.jetbrains.opzio.PluginMenu" text="Opzio"/>
   </actions>
-
 </idea-plugin>
