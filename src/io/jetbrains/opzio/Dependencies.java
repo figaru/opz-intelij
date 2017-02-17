@@ -177,6 +177,23 @@ public class Dependencies {
     }
 
     public static String getCLILocation() {
+        Opzio.log.info("------------------------ Depedencies Location --------------------");
+        Opzio.log.info(Dependencies.getResourcesLocation());
+
+        OsCheck.OSType ostype = OsCheck.getOperatingSystemType();
+        Opzio.log.info(ostype.toString());
+
+        switch (ostype) {
+            case Windows:
+                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
+            case MacOS:
+                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
+            case Linux:
+                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "opzio-sublime-master", "packages", "opzio", "cli.py");
+            case Other:
+                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
+        }
+        
         return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
     }
 
