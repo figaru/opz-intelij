@@ -14,6 +14,10 @@ public class ConfigFile {
     private static File configFile = new File(userHomeDir, Opzio.CONFIG);
 
     public static String get(String section, String key) {
+
+        Opzio.log.info("-------------------------- Config file -------------------------");
+        Opzio.log.info(configFile.getPath().toString());
+
         String val = null;
         try {
             BufferedReader br = new BufferedReader(new FileReader(configFile.getAbsolutePath()));

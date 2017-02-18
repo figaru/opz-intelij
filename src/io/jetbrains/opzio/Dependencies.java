@@ -177,34 +177,39 @@ public class Dependencies {
     }
 
     public static String getCLILocation() {
+        //check os's before sending the directory
+        //each os is creating a seperate directory
+        //testing
         Opzio.log.info("------------------------ Depedencies Location --------------------");
         Opzio.log.info(Dependencies.getResourcesLocation());
 
         OsCheck.OSType ostype = OsCheck.getOperatingSystemType();
         Opzio.log.info(ostype.toString());
 
-        switch (ostype) {
+        /*switch (ostype) {
             case Windows:
-                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
+                return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "opzio-sublime-master", "packages", "opzio", "cli.py");
             case MacOS:
                 return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
             case Linux:
                 return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "opzio-sublime-master", "packages", "opzio", "cli.py");
             case Other:
                 return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
-        }
-        
+        }*/
+
         return combinePaths(Dependencies.getResourcesLocation(), "opzio-sublime-master", "packages", "opzio", "cli.py");
     }
 
     public static void installCLI() {
         File cli = new File(Dependencies.getCLILocation());
-        if (!cli.getParentFile().getParentFile().getParentFile().exists())
-            cli.getParentFile().getParentFile().getParentFile().mkdirs();
+
+
+        if (!cli.getParentFile().getParentFile().getParentFile().getParentFile().exists())
+            cli.getParentFile().getParentFile().getParentFile().getParentFile().mkdirs();
 
         String url = "https://github.com/opzio/opzio-sublime/archive/master.zip";
-        String zipFile = combinePaths(cli.getParentFile().getParentFile().getParentFile().getAbsolutePath(), "opzio-cli.zip");
-        File outputDir = cli.getParentFile().getParentFile().getParentFile();
+        String zipFile = combinePaths(cli.getParentFile().getParentFile().getParentFile().getParentFile().getAbsolutePath(), "opzio-cli.zip");
+        File outputDir = cli.getParentFile().getParentFile().getParentFile().getParentFile();
 
         // download opzio-master.zip file
         if (downloadFile(url, zipFile)) {
